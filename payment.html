@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Payment — RXT Global Solutions</title>
+    <meta name="description" content="Secure payment portal for RXT Global Solutions. Choose a service package or enter a custom amount. Pay via Stripe or Moneris.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="public/rxtlogo.png">
+</head>
+<body>
+
+    <!-- ── NAVIGATION ── -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="public/rxtlogo.png" alt="RXT Global Solutions" class="nav-logo-img">
+                <div class="logo-text">
+                    <span class="logo-name">Global Solutions</span>
+                    <span class="logo-entity">RXT Global BPO &amp; Marketing Inc.</span>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industries.html">Industries</a></li>
+                <li><a href="operations.html">How We Operate</a></li>
+                <li><a href="payment.html" class="nav-cta">Make a Payment</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="payment-hero">
+        <div class="container">
+            <div class="payment-hero-content">
+                <div class="hero-badge" style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.9);font-size:0.8rem;font-weight:500;padding:0.4rem 1rem;border-radius:999px;margin-bottom:1.5rem;">
+                    🔒 Secure Payment Portal
+                </div>
+                <h1>Make a Payment</h1>
+                <p>Select a service package or enter a custom amount. All payments are processed securely through Stripe or Moneris.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PAYMENT SECTION ── -->
+    <section class="payment-section">
+        <div class="payment-container">
+
+            <!-- Fixed Packages -->
+            <div class="payment-options">
+                <h2>Choose a Service Package</h2>
+                <div class="packages-grid">
+
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Starter Package</h3>
+                            <div class="package-price">$3,600</div>
+                            <div class="package-price-cad">CAD</div>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li>Basic service setup</li>
+                                <li>Initial consultation</li>
+                                <li>3-month support</li>
+                            </ul>
+                        </div>
+                        <button class="package-btn" data-amount="3600" data-package="Starter Package">
+                            Pay Now
+                        </button>
+                    </div>
+
+                    <div class="package-card featured">
+                        <div class="package-badge">Most Popular</div>
+                        <div class="package-header">
+                            <h3>Professional Package</h3>
+                            <div class="package-price">$6,600</div>
+                            <div class="package-price-cad">CAD</div>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li>Complete service setup</li>
+                                <li>Advanced consultation</li>
+                                <li>6-month support</li>
+                                <li>Priority service</li>
+                            </ul>
+                        </div>
+                        <button class="package-btn" data-amount="6600" data-package="Professional Package">
+                            Pay Now
+                        </button>
+                    </div>
+
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Enterprise Package</h3>
+                            <div class="package-price">$8,999</div>
+                            <div class="package-price-cad">CAD</div>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li>Full enterprise setup</li>
+                                <li>Strategic planning</li>
+                                <li>12-month support</li>
+                                <li>Custom solutions</li>
+                            </ul>
+                        </div>
+                        <button class="package-btn" data-amount="8999" data-package="Enterprise Package">
+                            Pay Now
+                        </button>
+                    </div>
+
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Premium Package</h3>
+                            <div class="package-price">$10,800</div>
+                            <div class="package-price-cad">CAD</div>
+                        </div>
+                        <div class="package-features">
+                            <ul>
+                                <li>Premium enterprise setup</li>
+                                <li>Full strategic partnership</li>
+                                <li>24/7 support</li>
+                                <li>Dedicated account manager</li>
+                            </ul>
+                        </div>
+                        <button class="package-btn" data-amount="10800" data-package="Premium Package">
+                            Pay Now
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="payment-section-divider"></div>
+
+            <!-- Custom Amount -->
+            <div class="custom-amount-section">
+                <h2>Or Enter a Custom Amount</h2>
+                <div class="custom-amount-form">
+                    <div class="form-group">
+                        <label for="customAmount">Enter Your Amount (CAD)</label>
+                        <div class="input-group">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="customAmount" placeholder="0.00" min="1" step="0.01">
+                        </div>
+                        <p class="field-error" id="amountError">Please enter a valid amount greater than $0.</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="customDescription">Payment Description (Optional)</label>
+                        <input type="text" id="customDescription" placeholder="e.g., Monthly service fee">
+                    </div>
+                    <button class="custom-proceed-btn" id="customAmountBtn">
+                        Proceed to Payment →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Gateway Selection -->
+            <div class="gateway-section" id="gatewaySection" style="display:none;">
+                <h2>Select Payment Method</h2>
+                <div class="gateway-options">
+
+                    <div class="gateway-card">
+                        <div class="gateway-info">
+                            <div class="gateway-logo">
+                                <svg width="48" height="30" viewBox="0 0 48 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="48" height="30" rx="6" fill="#635BFF"/>
+                                    <text x="24" y="20" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">stripe</text>
+                                </svg>
+                            </div>
+                            <div class="gateway-details">
+                                <h4>Pay with Card (Stripe)</h4>
+                                <p>Visa, Mastercard, Amex &amp; more</p>
+                            </div>
+                        </div>
+                        <button class="gateway-btn" data-gateway="stripe">
+                            Pay with Card (Stripe)
+                        </button>
+                    </div>
+
+                    <div class="gateway-card">
+                        <div class="gateway-info">
+                            <div class="gateway-logo">
+                                <svg width="48" height="30" viewBox="0 0 48 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="48" height="30" rx="6" fill="#0066CC"/>
+                                    <text x="24" y="20" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="Arial">MONERIS</text>
+                                </svg>
+                            </div>
+                            <div class="gateway-details">
+                                <h4>Pay via Moneris</h4>
+                                <p>Canadian payment processing</p>
+                            </div>
+                        </div>
+                        <button class="gateway-btn" data-gateway="moneris">
+                            Pay via Moneris
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Payment Summary -->
+            <div class="payment-summary" id="paymentSummary" style="display:none;">
+                <h3>Payment Summary</h3>
+                <div class="summary-item">
+                    <span>Package</span>
+                    <span id="summaryPackage">—</span>
+                </div>
+                <div class="summary-item">
+                    <span>Amount</span>
+                    <span id="summaryAmount">—</span>
+                </div>
+                <div class="summary-item">
+                    <span>Currency</span>
+                    <span>CAD</span>
+                </div>
+                <div class="summary-item">
+                    <span>Payment Method</span>
+                    <span id="summaryGateway">—</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total Due</span>
+                    <span id="summaryTotal">—</span>
+                </div>
+                <button class="confirm-btn" id="confirmPaymentBtn">
+                    Confirm &amp; Proceed to Checkout
+                </button>
+            </div>
+
+            <!-- Redirect Notice -->
+            <div class="payment-redirect-notice" id="paymentRedirectNotice" style="display:none;">
+                <div class="redirect-icon">🔒</div>
+                <h3>Redirecting to Secure Checkout</h3>
+                <p id="redirectGatewayMsg">You will be redirected to complete your payment securely.</p>
+                <div class="redirect-spinner"></div>
+                <p class="redirect-fallback">
+                    Not redirected? Contact us at
+                    <a href="mailto:billing@rxtglobalsolutions.com">billing@rxtglobalsolutions.com</a>
+                    to arrange payment.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── SECURITY NOTICE ── -->
+    <section class="security-notice">
+        <div class="container">
+            <div class="security-content">
+                <div class="security-icon">🔒</div>
+                <div class="security-text">
+                    <h3>Secure Payment Processing</h3>
+                    <p>Your payment information is encrypted and processed securely. We do not store card details on our servers. All payments are handled exclusively through Stripe and Moneris hosted checkout pages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DISCLAIMER ── -->
+    <div class="disclaimer-bar">
+        <div class="container">
+            <p><strong>Disclaimer:</strong> Services are delivered by respective affiliated brands or service providers. RXT Global Solutions acts as the centralized billing and administrative entity.</p>
+        </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <div class="footer-logo">
+                        <div class="logo-mark sm">RXT</div>
+                        <span>Global Solutions</span>
+                    </div>
+                    <p>An operating division of RXT Global BPO &amp; Marketing Inc., providing structured B2B services across Canada.</p>
+                    <div class="footer-trust">
+                        <span>🇨🇦 Canadian Registered</span>
+                        <span>🔒 Secure Payments</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="index.html#services">Appointment Booking</a></li>
+                        <li><a href="index.html#services">Lead Generation</a></li>
+                        <li><a href="index.html#services">Virtual Assistance</a></li>
+                        <li><a href="index.html#services">Marketing &amp; Outreach</a></li>
+                        <li><a href="index.html#services">Operations Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#industries">Industries</a></li>
+                        <li><a href="index.html#operations">How We Operate</a></li>
+                        <li><a href="payment.html">Make a Payment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 RXT Global BPO &amp; Marketing Inc. All Rights Reserved</p>
+                <p>RXT Global Solutions is an operating division of RXT Global BPO &amp; Marketing Inc.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Payment state
+        let paymentState = { amount: 0, package: '', gateway: '', description: '' };
+
+        // Package selection
+        document.querySelectorAll('.package-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                paymentState.amount = parseFloat(this.dataset.amount);
+                paymentState.package = this.dataset.package;
+                showGatewaySection();
+            });
+        });
+
+        // Custom amount
+        document.getElementById('customAmountBtn').addEventListener('click', function() {
+            const input = document.getElementById('customAmount');
+            const errorEl = document.getElementById('amountError');
+            const amount = parseFloat(input.value);
+
+            if (!amount || amount <= 0) {
+                input.classList.add('input-error');
+                errorEl.classList.add('visible');
+                input.focus();
+                return;
+            }
+
+            input.classList.remove('input-error');
+            errorEl.classList.remove('visible');
+            paymentState.amount = amount;
+            paymentState.package = 'Custom Amount';
+            paymentState.description = document.getElementById('customDescription').value;
+            showGatewaySection();
+        });
+
+        document.getElementById('customAmount').addEventListener('input', function() {
+            if (this.value < 0) this.value = 0;
+            this.classList.remove('input-error');
+            document.getElementById('amountError').classList.remove('visible');
+        });
+
+        function showGatewaySection() {
+            const el = document.getElementById('gatewaySection');
+            el.style.display = 'block';
+            setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        }
+
+        // Gateway selection
+        document.querySelectorAll('.gateway-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                paymentState.gateway = this.dataset.gateway;
+                showSummary();
+            });
+        });
+
+        function showSummary() {
+            const gatewayLabel = paymentState.gateway === 'stripe' ? 'Stripe (Card)' : 'Moneris';
+            document.getElementById('summaryPackage').textContent = paymentState.package;
+            document.getElementById('summaryAmount').textContent = `$${paymentState.amount.toFixed(2)}`;
+            document.getElementById('summaryGateway').textContent = gatewayLabel;
+            document.getElementById('summaryTotal').textContent = `$${paymentState.amount.toFixed(2)} CAD`;
+
+            const el = document.getElementById('paymentSummary');
+            el.style.display = 'block';
+            setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        }
+
+        // Confirm payment
+        document.getElementById('confirmPaymentBtn').addEventListener('click', function() {
+            this.disabled = true;
+            this.textContent = 'Processing…';
+
+            const notice = document.getElementById('paymentRedirectNotice');
+            const gatewayLabel = paymentState.gateway === 'stripe' ? 'Stripe' : 'Moneris';
+            document.getElementById('redirectGatewayMsg').textContent =
+                `Redirecting to ${gatewayLabel} to complete your $${paymentState.amount.toFixed(2)} CAD payment securely.`;
+
+            document.getElementById('paymentSummary').style.display = 'none';
+            notice.style.display = 'block';
+            setTimeout(() => notice.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+
+            // Replace # values below with your real Stripe / Moneris hosted checkout URLs
+            const urls = {
+                stripe: '#stripe-checkout-url',
+                moneris: '#moneris-hpp-url'
+            };
+            setTimeout(() => {
+                const url = urls[paymentState.gateway];
+                if (url && !url.startsWith('#')) window.location.href = url;
+            }, 2200);
+        });
+    </script>
+</body>
+</html>
